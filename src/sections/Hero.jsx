@@ -116,7 +116,7 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-24 md:pb-32"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -226,7 +226,7 @@ export default function Hero() {
 
         <motion.div
           variants={itemVariants}
-          className="flex flex-wrap justify-center gap-3 md:gap-4 mt-12 hero-text"
+          className="flex flex-wrap justify-center gap-3 md:gap-4 mt-6 md:mt-10 hero-text"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, staggerChildren: 0.1 }}
