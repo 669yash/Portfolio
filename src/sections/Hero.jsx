@@ -262,8 +262,8 @@ export default function Hero() {
             transition={{ delay: 1.4 }}
           >
             <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              animate={{ scale: [1, 1.2, 1], y: [0, -4, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
               <Github size={20} />
             </motion.div>
@@ -282,8 +282,8 @@ export default function Hero() {
             transition={{ delay: 1.5 }}
           >
             <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              animate={{ scale: [1, 1.2, 1], y: [0, -4, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
               <Linkedin size={20} />
             </motion.div>
