@@ -78,10 +78,13 @@ export default function About() {
                   I'm a final-year Computer Engineering student with a passion for Machine Learning, Generative AI, and Data Analytics. I love solving real-world problems with AI-driven solutions, whether it's deep learning models, interactive dashboards, or cloud-based applications.
                 </p>
                 <p className="text-gray-100 leading-relaxed text-lg mt-4">
-                  I'm self-driven, curious, and constantly learning — whether it's building intelligent systems, experimenting with new ML architectures, or deploying solutions on AWS.
+                  I'm self-driven, curious, and constantly learning whether it's building intelligent systems, experimenting with new ML architectures, or deploying solutions on AWS.
                 </p>
                 <p className="text-gray-100 leading-relaxed text-lg mt-4">
                   I strongly value teamwork, leadership, and clear communication. Whether leading student teams or collaborating in internships, I always focus on creativity, problem-solving, and helping teams achieve shared goals.
+                </p>
+                <p className="text-gray-100 leading-relaxed text-lg mt-4">
+                  Beyond tech, I enjoy playing football, cooking, and traveling new places.
                 </p>
               </div>
             </div>
