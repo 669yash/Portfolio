@@ -27,6 +27,12 @@ const certifications = [
     color: 'from-blue-500 to-indigo-500',
   },
   {
+    title: 'Software Testing (NPTEL)',
+    provider: 'NPTEL',
+    link: 'https://drive.google.com/file/d/1mk5QSddOuDoCsSdLaHWu4BaJzwxh8iC5/view?usp=sharing', // Replace with actual link
+    color: 'from-orange-500 to-yellow-500',
+  },
+  {
     title: 'Enterprise Data Science (IBM)',
     provider: 'IBM',
     link: 'https://drive.google.com/file/d/1kxxTZh5bhl1C-_tlPfF_mLxJpiZhYhgM/view?usp=sharing', // Replace with actual link
