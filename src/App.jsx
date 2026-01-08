@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { motion } from 'framer-motion'
 import Navigation from './components/Navigation'
 import ScrollToTop from './components/ScrollToTop'
 import Hero from './sections/Hero'
@@ -16,12 +17,29 @@ import Footer from './components/Footer'
 
 function App() {
   useEffect(() => {
-    // Smooth scroll behavior
-    document.documentElement.style.scrollBehavior = 'smooth'
+    // Prevent upward movement on refresh: disable smooth initially, then enable
+    const el = document.documentElement
+    const prev = el.style.scrollBehavior
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+    el.style.scrollBehavior = 'auto'
+    const id = setTimeout(() => {
+      el.style.scrollBehavior = 'smooth'
+    }, 600)
+    return () => {
+      clearTimeout(id)
+      el.style.scrollBehavior = prev
+    }
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black text-white">
+    <motion.div
+      initial={{ opacity: 0, filter: 'blur(6px)' }}
+      animate={{ opacity: 1, filter: 'blur(0px)' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black text-white"
+    >
       <Navigation />
       <ScrollToTop />
       <Hero />
@@ -36,7 +54,7 @@ function App() {
       <Certifications />
       <Contact />
       <Footer />
-    </div>
+    </motion.div>
   )
 }
 

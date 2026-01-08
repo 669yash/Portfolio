@@ -18,17 +18,16 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Set initial state with more dramatic values
-      gsap.set('.hero-text', { opacity: 0, y: 100, scale: 0.8 })
+      gsap.set('.hero-text', { opacity: 0, y: 0, scale: 0.9 })
       
       // Animate in with more visible effects
       gsap.to('.hero-text', {
         opacity: 1,
-        y: 0,
         scale: 1,
-        duration: 1.5,
-        stagger: 0.4,
-        ease: 'power4.out',
-        delay: 0.3,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: 'power2.out',
+        delay: 0.2,
       })
 
       // Floating emoji animation - more dramatic
@@ -102,10 +101,10 @@ export default function Hero() {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, scale: 0.98 },
     visible: {
       opacity: 1,
-      y: 0,
+      scale: 1,
       transition: {
         duration: 0.6,
       },
@@ -227,8 +226,8 @@ export default function Hero() {
         <motion.div
           variants={itemVariants}
           className="flex flex-wrap justify-center gap-3 md:gap-4 mt-6 md:mt-10 hero-text"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.2, staggerChildren: 0.1 }}
         >
           <motion.a
