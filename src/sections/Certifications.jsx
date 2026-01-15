@@ -15,6 +15,12 @@ const certifications = [
     color: 'from-orange-500 to-yellow-500',
   },
   {
+    title: 'Deep Learning',
+    provider: 'SimpliLearn',
+    link: 'https://drive.google.com/file/d/1mk5QSddOuDoCsSdLaHWu4BaJzwxh8iC5/view?usp=sharing', // Replace with actual link
+    color: 'from-orange-500 to-yellow-500',
+  },
+  {
     title: 'Cloud Computing (NPTEL)',
     provider: 'NPTEL',
     link: 'https://drive.google.com/file/d/1cyJeSgHF2U9HF4jCy4KVb8v-PKLSRWI_/view?usp=sharing', // Replace with actual link

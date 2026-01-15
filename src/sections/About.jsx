@@ -6,7 +6,7 @@ const education = [
     institution: 'MIT Academy of Engineering',
     period: '2022–2026',
     degree: 'Computer Engineering',
-    cgpa: 'CGPA 7.91',
+    cgpa: 'CGPA 8.1',
     icon: GraduationCap,
   },
   {
