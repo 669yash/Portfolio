@@ -4,19 +4,25 @@ import { Trophy, Award, Star } from 'lucide-react'
 const achievements = [
   {
     title: 'Datathon 2025',
-    position: '2nd Runner-up',
+    position: '2nd Runner-Up',
+    description:
+      'Built a blockchain-based carbon credit marketplace ensuring transparent tracking, secure transactions, emissions verification, and incentivized sustainability.',
     icon: Trophy,
     color: 'from-yellow-500 to-orange-500',
   },
   {
     title: 'VytoHack',
     position: 'Finalist',
+    description:
+      'Developed CNN and YOLO models to predict Indian ragas using audio-visual features and deep learning classification.',
     icon: Award,
     color: 'from-blue-500 to-indigo-500',
   },
   {
     title: 'Atos Srijan 2025',
     position: 'Jury Round',
+    description:
+      'Created GenAI-driven brand campaign content including marketing copy, visuals, and audience-focused engagement strategies.',
     icon: Star,
     color: 'from-purple-500 to-pink-500',
   },
@@ -86,6 +92,9 @@ export default function Achievements() {
                   </h3>
                   <p className={`text-lg font-semibold bg-gradient-to-r ${achievement.color} bg-clip-text text-transparent`}>
                     {achievement.position}
+                  </p>
+                  <p className="mt-4 text-gray-300 leading-relaxed">
+                    {achievement.description}
                   </p>
                 </div>
               </motion.div>
