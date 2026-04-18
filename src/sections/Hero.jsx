@@ -1,9 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import { Download, Github, Linkedin, ChevronDown } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Download, Github, Linkedin, ChevronDown, Briefcase, Cpu } from 'lucide-react'
 import { gsap } from 'gsap'
+import { profiles } from '../data/profileData'
 
-export default function Hero() {
+const profileOptions = [
+  {
+    id: 'ai',
+    icon: Cpu,
+    eyebrow: 'Technical Path',
+  },
+  {
+    id: 'product',
+    icon: Briefcase,
+    eyebrow: 'Business Path',
+  },
+]
+
+export default function Hero({ profile, selectedProfile, onSelectProfile }) {
   const heroRef = useRef(null)
   const [isMobile, setIsMobile] = useState(false)
 
@@ -17,10 +31,8 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Set initial state with more dramatic values
       gsap.set('.hero-text', { opacity: 0, y: 0, scale: 0.9 })
-      
-      // Animate in with more visible effects
+
       gsap.to('.hero-text', {
         opacity: 1,
         scale: 1,
@@ -30,17 +42,6 @@ export default function Hero() {
         delay: 0.2,
       })
 
-      // Floating emoji animation - more dramatic
-      gsap.to('.floating', {
-        y: isMobile ? -20 : -30,
-        rotation: isMobile ? 6 : 10,
-        duration: 2.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power2.inOut',
-      })
-
-      // Animated background blobs - more movement
       gsap.to('.blob-1', {
         x: isMobile ? 90 : 150,
         y: isMobile ? -90 : -150,
@@ -76,7 +77,6 @@ export default function Hero() {
         delay: 3,
       })
 
-      // Add pulsing glow effect to hero text
       gsap.to('.hero-glow', {
         opacity: isMobile ? 0.5 : 0.6,
         scale: isMobile ? 1.05 : 1.1,
@@ -172,7 +172,7 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
         >
           <motion.img
-            src="/landing-photo.jpg"
+            src="/assets/landing-photo.jpg"
             alt="Profile image"
             className="w-32 h-32 md:w-48 md:h-48 rounded-2xl object-cover border border-white/10 shadow-2xl mx-auto"
             initial={{ y: 0 }}
@@ -180,6 +180,7 @@ export default function Hero() {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           />
         </motion.div>
+
         <motion.div variants={itemVariants} className="hero-text">
           <motion.p
             className="text-lg md:text-xl text-gray-200 font-semibold mb-4 tracking-[0.2em] uppercase"
@@ -213,25 +214,106 @@ export default function Hero() {
 
         <motion.div
           variants={itemVariants}
-          className="hero-text"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="hero-text max-w-3xl mx-auto"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.8 }}
         >
-          <TypingAnimation />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedProfile}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-100 min-h-[60px] md:min-h-[80px]">
+                {profile.currentLabel}
+              </h2>
+              <p className="mt-4 text-sm md:text-base text-gray-300 leading-relaxed">
+                {profile.roleLine}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
-
-        
 
         <motion.div
           variants={itemVariants}
-          className="flex flex-wrap justify-center gap-3 md:gap-4 mt-6 md:mt-10 hero-text"
+          className="hero-text mt-8 max-w-4xl mx-auto"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.95 }}
+        >
+          <p className="text-xs md:text-sm uppercase tracking-[0.35em] text-gray-400 mb-5">
+            Choose The Profile You Want To Explore
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+            {profileOptions.map((option) => {
+              const Icon = option.icon
+              const optionProfile = profiles[option.id]
+              const isActive = option.id === selectedProfile
+
+              return (
+                <motion.button
+                  key={option.id}
+                  type="button"
+                  onClick={() => onSelectProfile(option.id)}
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`relative overflow-hidden rounded-2xl border p-5 md:p-6 text-left transition-all duration-300 ${
+                    isActive
+                      ? 'border-white/30 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.12)]'
+                      : 'border-white/10 bg-slate-950/60 hover:border-white/20'
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="profile-selection"
+                      className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent"
+                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between gap-4 mb-4">
+                      <div className="p-3 rounded-xl bg-white/10 border border-white/10">
+                        <Icon className="text-white" size={24} />
+                      </div>
+                      <span className="text-[11px] uppercase tracking-[0.3em] text-gray-400">
+                        {option.eyebrow}
+                      </span>
+                    </div>
+                    <h3 className="text-lg md:text-xl font-semibold text-white">
+                      {optionProfile.optionLabel}
+                    </h3>
+                    <p className="mt-2 text-sm text-gray-300 leading-relaxed">
+                      {optionProfile.optionDescription}
+                    </p>
+                  </div>
+                </motion.button>
+              )
+            })}
+          </div>
+        </motion.div>
+
+        <motion.p
+          variants={itemVariants}
+          className="hero-text mt-6 max-w-2xl mx-auto text-gray-300 leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.05 }}
+        >
+          {profile.heroIntro}
+        </motion.p>
+
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8 md:mt-10 hero-text"
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.2, staggerChildren: 0.1 }}
         >
           <motion.a
-            href="/resume.pdf"
+            href={profile.resumeHref}
             download
             className="group flex items-center gap-2 px-5 py-3 md:px-6 md:py-3 bg-gradient-to-r from-white to-gray-200 text-gray-900 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             whileHover={{ scale: 1.1, y: -5, boxShadow: "0 20px 40px rgba(255,255,255,0.2)" }}
@@ -246,7 +328,7 @@ export default function Hero() {
             >
               <Download size={20} />
             </motion.div>
-            Download Resume
+            {profile.resumeLabel}
           </motion.a>
 
           <motion.a
@@ -256,8 +338,8 @@ export default function Hero() {
             className="group flex items-center gap-2 px-5 py-3 md:px-6 md:py-3 bg-slate-900/70 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl border border-white/10 transition-all duration-300"
             whileHover={{ scale: 1.1, y: -5, borderColor: "rgba(255,255,255,0.3)" }}
             whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.4 }}
           >
             <motion.div
@@ -276,8 +358,8 @@ export default function Hero() {
             className="group flex items-center gap-2 px-5 py-3 md:px-6 md:py-3 bg-slate-900/70 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl border border-white/10 transition-all duration-300"
             whileHover={{ scale: 1.1, y: -5, borderColor: "rgba(255,255,255,0.3)" }}
             whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.5 }}
           >
             <motion.div
@@ -294,8 +376,8 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <motion.div
         className="hidden sm:block absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none md:pointer-events-auto"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
       >
         <motion.a
@@ -314,55 +396,5 @@ export default function Hero() {
       </motion.div>
 
     </section>
-  )
-}
-
-function TypingAnimation() {
-  const texts = [
-    'Machine Learning Developer',
-    'Data Analytics Specialist',
-  ]
-  const [currentText, setCurrentText] = useState('')
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [textIndex, setTextIndex] = useState(0)
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      const fullText = texts[textIndex]
-
-      if (!isDeleting && currentIndex < fullText.length) {
-        setCurrentText(fullText.substring(0, currentIndex + 1))
-        setCurrentIndex(currentIndex + 1)
-      } else if (isDeleting && currentIndex > 0) {
-        setCurrentText(fullText.substring(0, currentIndex - 1))
-        setCurrentIndex(currentIndex - 1)
-      } else if (!isDeleting && currentIndex === fullText.length) {
-        setTimeout(() => setIsDeleting(true), 2000)
-      } else if (isDeleting && currentIndex === 0) {
-        setIsDeleting(false)
-        setTextIndex((textIndex + 1) % texts.length)
-      }
-    }, isDeleting ? 50 : 100)
-
-    return () => clearTimeout(timeout)
-  }, [currentIndex, isDeleting, textIndex, texts])
-
-  return (
-    <motion.h2
-      className="text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-200 min-h-[60px] md:min-h-[80px]"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      {currentText}
-      <motion.span
-        className="inline-block ml-1"
-        animate={{ opacity: [1, 0, 1] }}
-        transition={{ duration: 1, repeat: Infinity }}
-      >
-        |
-      </motion.span>
-    </motion.h2>
   )
 }

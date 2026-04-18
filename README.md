@@ -62,11 +62,16 @@ Edit `src/sections/Certifications.jsx` and replace the placeholder Google Drive 
 }
 ```
 
-### Add Resume PDF
+### Add Assets
 
-1. Place your resume PDF file in the `public/` folder
-2. Name it `resume.pdf`
-3. The download link in the Hero section will automatically work
+1. Place your asset files in the `public/assets/` folder
+2. Use these exact filenames:
+   - Favicon: `favicon.jpg`
+   - Profile/Landing Image: `landing-photo.jpg`
+   - AI Resume: `Resume_SDE_AI.pdf`
+   - PM Resume: `Resume_PM.pdf`
+   - Sample Case Study: `case-study-sample.pdf`
+3. The links in the site will automatically work once these files are in place.
 
 ### Update Project Links
 

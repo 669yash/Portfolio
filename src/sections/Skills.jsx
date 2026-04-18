@@ -1,59 +1,27 @@
 import { motion } from 'framer-motion'
-import { Brain, Cloud, BarChart3, Code, Globe } from 'lucide-react'
+import {
+  BarChart3,
+  Brain,
+  Briefcase,
+  Cloud,
+  Code,
+  Rocket,
+  Terminal,
+  Wrench,
+} from 'lucide-react'
 
-const skillCategories = [
-  {
-    title: 'Artificial Intelligence',
-    icon: Brain,
-    skills: ['Machine Learning', 'Deep Learning', 'Natural Language Processing', 'Gen AI', 'TensorFlow', 'PyTorch', 'Scikit-learn'],
-    color: 'from-purple-500 to-pink-500',
-    bgColor: 'bg-purple-100 dark:bg-purple-900/20',
-  },
-  {
-    title: 'Data Analytics',
-    icon: BarChart3,
-    skills: ['Power BI', 'Tableau', 'Excel', 'DBMS'],
-    color: 'from-green-500 to-emerald-500',
-    bgColor: 'bg-green-100 dark:bg-green-900/20',
-  },
-  {
-    title: 'Cloud & DevOps',
-    icon: Cloud,
-    skills: ['AWS(EC2, S3, VPC)', 'Git', 'Docker', 'CI/CD'],
-    color: 'from-blue-500 to-cyan-500',
-    bgColor: 'bg-blue-100 dark:bg-blue-900/20',
-  },
-  {
-    title: 'Programming Languages',
-    icon: Code,
-    skills: ['C', 'C++', 'SQL', 'Python'],
-    color: 'from-indigo-500 to-purple-500',
-    bgColor: 'bg-indigo-100 dark:bg-indigo-900/20',
-  },
-  {
-    title: 'Tools',
-    icon: BarChart3,
-    skills: ['Git', 'GitHub', 'Terraform', 'JIRA'],
-    color: 'from-purple-500 to-pink-500',
-    bgColor: 'bg-purple-100 dark:bg-purple-900/20',
-  },
-  {
-    title: 'Data Structures',
-    icon: Code,
-    skills: ['Arrays', 'Strings', 'Linked Lists', 'Stacks', 'Queues', 'Trees', 'Sorting & Searching'],
-    color: 'from-orange-500 to-red-500',
-    bgColor: 'bg-orange-100 dark:bg-orange-900/20',
-  },
-  {
-    title: 'Web Development',
-    icon: Globe,
-    skills: ['HTML', 'CSS', 'JavaScript'],
-    color: 'from-indigo-500 to-purple-500',
-    bgColor: 'bg-indigo-100 dark:bg-indigo-900/20',
-  },
-]
+const iconMap = {
+  brain: Brain,
+  briefcase: Briefcase,
+  'bar-chart': BarChart3,
+  cloud: Cloud,
+  code: Code,
+  rocket: Rocket,
+  terminal: Terminal,
+  toolbox: Wrench,
+}
 
-export default function Skills() {
+export default function Skills({ profile }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -99,8 +67,8 @@ export default function Skills() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon
+          {profile.skills.map((category, index) => {
+            const Icon = iconMap[category.icon]
             return (
               <motion.div
                 key={index}

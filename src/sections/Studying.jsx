@@ -1,30 +1,15 @@
 import { motion } from 'framer-motion'
-import { Brain, Cloud } from 'lucide-react'
+import { Brain, Cloud, RefreshCw, Maximize } from 'lucide-react'
 
-const studyingItems = [
-  {
-    title: 'GenAI',
-    icon: Brain,
-    color: 'from-purple-500 via-fuchsia-500 to-pink-500',
-    points: [
-      'LLMs and prompt engineering',
-      'RAG pipelines and embeddings',
-      'Fine-tuning and evaluation',
-    ],
-  },
-  {
-    title: 'ML-Ops',
-    icon: Cloud,
-    color: 'from-cyan-500 via-blue-500 to-indigo-500',
-    points: [
-      'Model serving and monitoring',
-      'CI/CD for ML systems',
-      'Containerization and cloud deploys',
-    ],
-  },
-]
+const iconMap = {
+  brain: Brain,
+  cloud: Cloud,
+  'refresh-cw': RefreshCw,
+  maximize: Maximize,
+}
 
-export default function Studying() {
+export default function Studying({ profile }) {
+  const studyingItems = profile.studying || []
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -70,7 +55,7 @@ export default function Studying() {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {studyingItems.map((item, idx) => {
-            const Icon = item.icon
+            const Icon = iconMap[item.icon] || Brain
             return (
               <motion.div
                 key={idx}
@@ -121,4 +106,5 @@ export default function Studying() {
     </section>
   )
 }
+
 

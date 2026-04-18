@@ -1,31 +1,14 @@
 import { motion } from 'framer-motion'
 import { GraduationCap, Award, BookOpen } from 'lucide-react'
+import { education } from '../data/profileData'
 
-const education = [
-  {
-    institution: 'MIT Academy of Engineering',
-    period: '2022–2026',
-    degree: 'Computer Engineering',
-    cgpa: 'CGPA 8.1',
-    icon: GraduationCap,
-  },
-  {
-    institution: 'Kendriya Vidyalaya Varangaon',
-    period: 'Completed',
-    degree: 'High School',
-    cgpa: '81.6%',
-    icon: BookOpen,
-  },
-  {
-    institution: 'Orion CBSE School',
-    period: 'Completed',
-    degree: 'School',
-    cgpa: '90.8%',
-    icon: Award,
-  },
-]
+const iconMap = {
+  'graduation-cap': GraduationCap,
+  'book-open': BookOpen,
+  award: Award,
+}
 
-export default function About() {
+export default function About({ profile }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -74,18 +57,14 @@ export default function About() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-gray-500/30 to-transparent rounded-2xl blur-3xl opacity-40" />
               <div className="relative bg-slate-950/70 border border-white/5 rounded-2xl p-8 shadow-2xl backdrop-blur">
-                <p className="text-gray-100 leading-relaxed text-lg">
-                  I'm a final-year Computer Engineering student with a passion for Machine Learning, Generative AI, and Data Analytics. I love solving real-world problems with AI-driven solutions, whether it's deep learning models, interactive dashboards, or cloud-based applications.
-                </p>
-                <p className="text-gray-100 leading-relaxed text-lg mt-4">
-                  I'm self-driven, curious, and constantly learning whether it's building intelligent systems, experimenting with new ML architectures, or deploying solutions on AWS.
-                </p>
-                <p className="text-gray-100 leading-relaxed text-lg mt-4">
-                  I strongly value teamwork, leadership, and clear communication. Whether leading student teams or collaborating in internships, I always focus on creativity, problem-solving, and helping teams achieve shared goals.
-                </p>
-                <p className="text-gray-100 leading-relaxed text-lg mt-4">
-                  Beyond tech, I enjoy playing football, cooking, and traveling new places.
-                </p>
+                {profile.aboutParagraphs.map((paragraph, index) => (
+                  <p
+                    key={paragraph}
+                    className={`text-gray-100 leading-relaxed text-lg ${index > 0 ? 'mt-4' : ''}`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -109,7 +88,7 @@ export default function About() {
                 className="space-y-6"
               >
                 {education.map((edu, index) => {
-                  const Icon = edu.icon
+                  const Icon = iconMap[edu.icon]
                   return (
                     <motion.div
                       key={index}

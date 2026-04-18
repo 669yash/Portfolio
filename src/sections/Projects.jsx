@@ -1,40 +1,7 @@
 import { motion } from 'framer-motion'
 import { Code } from 'lucide-react'
 
-const projects = [
-  {
-    title: 'CrayFit – AI Diet Planner',
-    description: 'An intelligent diet planning system powered by deep learning algorithms, built with MERN stack for personalized nutrition recommendations.',
-    tech: ['Deep Learning', 'MERN', 'TensorFlow', 'React', 'Node.js'],
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
-    title: 'BrandSnap AI – GenAI Content Creator',
-    description: 'A generative AI-powered content creation platform using React and Gemini API for automated marketing content generation.',
-    tech: ['React', 'Gemini API', 'Generative AI', 'JavaScript'],
-    color: 'from-purple-500 to-pink-500',
-  },
-  {
-    title: 'Sentimental Analysis using Python',
-    description: 'NLP-based sentiment analysis system that processes RSS feeds to extract and analyze emotional sentiment from text data.',
-    tech: ['Python', 'NLP', 'RSS Feeds', 'Machine Learning'],
-    color: 'from-green-500 to-emerald-500',
-  },
-  {
-    title: 'EdTech Career Counseling Chatbot',
-    description: 'An intelligent ML-powered chatbot that provides personalized career counseling and guidance for students in the education sector.',
-    tech: ['ML', 'NLP', 'Chatbot', 'Python'],
-    color: 'from-orange-500 to-red-500',
-  },
-  {
-    title: 'Weather Forecasting using ML',
-    description: 'Machine learning model for accurate weather prediction using historical meteorological data and advanced forecasting algorithms.',
-    tech: ['Machine Learning', 'Python', 'Data Science', 'Scikit-learn'],
-    color: 'from-indigo-500 to-purple-500',
-  },
-]
-
-export default function Projects() {
+export default function Projects({ profile }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -70,6 +37,11 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-gray-400 to-gray-600 bg-clip-text text-transparent">
             Projects
           </h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            {profile.id === 'ai'
+              ? 'Technical projects highlighting AI systems, analytics, and applied engineering.'
+              : 'Product-oriented work showing user understanding, decision-making, and outcome-driven execution.'}
+          </p>
           <div className="w-24 h-1 bg-gradient-to-r from-white/70 to-gray-500/70 mx-auto rounded-full" />
         </motion.div>
 
@@ -80,7 +52,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {projects.map((project, index) => (
+          {profile.projects.map((project, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
@@ -107,7 +79,7 @@ export default function Projects() {
                 ))}
               </div>
               <p className="uppercase text-[11px] tracking-[0.3em] text-gray-500">
-                Featured Build
+                {project.badge}
               </p>
             </motion.div>
           ))}

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '../utils/cn'
 
-const navItems = [
+const baseNavItems = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
@@ -13,9 +13,13 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ]
 
-export default function Navigation() {
+export default function Navigation({ selectedProfile }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const navItems =
+    selectedProfile === 'product'
+      ? [...baseNavItems.slice(0, 6), { name: 'Case Studies', href: '#case-studies' }, baseNavItems[6]]
+      : baseNavItems
 
   useEffect(() => {
     const handleScroll = () => {

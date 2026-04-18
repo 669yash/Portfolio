@@ -100,7 +100,7 @@ This guide will walk you through deploying your portfolio website to Vercel.
 - [ ] Test on mobile devices
 - [ ] Check animations and transitions
 - [ ] Update certification links with actual Google Drive URLs
-- [ ] Upload actual resume.pdf to `public/` folder
+- [ ] Upload actual `favicon.jpg`, `landing-photo.jpg`, `Resume_SDE_AI.pdf`, and `Resume_PM.pdf` to `public/assets/` folder
 - [ ] Test contact form (frontend only - shows alert)
 - [ ] Verify smooth scrolling works
 - [ ] Check dark mode (if applicable)
@@ -135,7 +135,7 @@ This guide will walk you through deploying your portfolio website to Vercel.
 ### Assets Not Loading
 
 1. Ensure all assets are in the `public/` folder
-2. Use relative paths (e.g., `/resume.pdf` not `./resume.pdf`)
+2. Use relative paths (e.g., `/Resume_SDE_AI.pdf` not `./Resume_SDE_AI.pdf`)
 3. Check file names match exactly (case-sensitive)
 
 ### Animations Not Working

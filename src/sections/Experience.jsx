@@ -1,34 +1,7 @@
 import { motion } from 'framer-motion'
 import { Briefcase, Calendar, MapPin } from 'lucide-react'
 
-const experiences = [
-  {
-    company: 'IPride Solutions and Services',
-    role: 'Machine Learning Intern',
-    period: 'Current',
-    location: 'Remote',
-    achievements: [
-      'Built an AI-driven stock analysis platform with real-time sentiment insights',
-      'Developed a college attendance system using face recognition',
-      'Currently working on vehicle entry system with number plate detection',
-    ],
-    color: 'from-blue-500 to-indigo-500',
-  },
-  {
-    company: 'Ammunition Factory Khadki',
-    role: 'Frontend Web Development Intern',
-    period: 'Previous',
-    location: 'Pune, India',
-    achievements: [
-      'Built interactive forms & Power BI dashboards',
-      'Deployed Maya OS on 30+ computers',
-      'Assisted with documentation & internal query resolution',
-    ],
-    color: 'from-purple-500 to-pink-500',
-  },
-]
-
-export default function Experience() {
+export default function Experience({ profile }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -73,7 +46,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          {experiences.map((exp, index) => (
+          {profile.experiences.map((exp, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
