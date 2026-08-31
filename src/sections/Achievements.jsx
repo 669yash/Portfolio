@@ -19,10 +19,10 @@ const achievements = [
     color: 'from-blue-500 to-indigo-500',
   },
   {
-    title: 'Atos Srijan 2025',
-    position: 'Jury Round',
+    title: 'Analytics Vidhya Hackathon',
+    position: 'All India Rank-64',
     description:
-      'Created GenAI-driven brand campaign content including marketing copy, visuals, and audience-focused engagement strategies.',
+      'Built CLTV prediction model for motor insurance using XGBoost.',
     icon: Star,
     color: 'from-purple-500 to-pink-500',
   },
