@@ -3,63 +3,69 @@ import { Award, ExternalLink } from 'lucide-react'
 
 const certifications = [
   {
+    title: 'AWS Certified Cloud Practitioner',
+    provider: 'Amazon Web Services',
+    link: 'https://drive.google.com/file/d/11Q2k_dFHXj3M7Tdko7ppDE_WmVeO8jF1/view?usp=sharing', // Replace with actual link
+    color: 'from-orange-500 to-yellow-500',
+  },
+  {
     title: 'AWS Cloud Foundations',
     provider: 'Amazon Web Services',
-    link: 'https://drive.google.com/file/d/1aF1qdYbY_vQxIT4YjvxSq87Zdx6TamhW/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1jCp-EMfXMGokX5gjnzwpykvoxQr3hh6r/view?usp=sharing', // Replace with actual link
     color: 'from-orange-500 to-yellow-500',
   },
   {
     title: 'AWS Cloud Architecting',
     provider: 'Amazon Web Services',
-    link: 'https://drive.google.com/file/d/12Ngvp_g0Q2dKEBtdUx0mhdUdYwa-SFoq/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1pwtmXbgB4D56puWHFV6Q2m-XGUDbzu2d/view?usp=sharing', // Replace with actual link
     color: 'from-orange-500 to-yellow-500',
   },
   {
     title: 'Deep Learning',
     provider: 'SimpliLearn',
-    link: 'https://drive.google.com/file/d/1mk5QSddOuDoCsSdLaHWu4BaJzwxh8iC5/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1_8SNXDoUWMnRJlw26LH52TvjcHVIqpkc/view?usp=sharing', // Replace with actual link
     color: 'from-orange-500 to-yellow-500',
   },
   {
     title: 'Cloud Computing (NPTEL)',
     provider: 'NPTEL',
-    link: 'https://drive.google.com/file/d/1cyJeSgHF2U9HF4jCy4KVb8v-PKLSRWI_/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1lycaff-LrYzKAmDwd5dBVuZzDu9HZi-y/view?usp=sharing', // Replace with actual link
     color: 'from-blue-500 to-indigo-500',
   },
   {
     title: 'Business Development (NPTEL)',
     provider: 'NPTEL',
-    link: 'https://drive.google.com/file/d/1P8za3ZkmnQwCULerZvn3Wa7hac_B_Az0/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1uJ2JDL_xE_wbXrMTm-GladxQFbjd875t/view?usp=sharing', // Replace with actual link
     color: 'from-blue-500 to-indigo-500',
   },
   {
     title: 'Software Testing (NPTEL)',
     provider: 'NPTEL',
-    link: 'https://drive.google.com/file/d/1mk5QSddOuDoCsSdLaHWu4BaJzwxh8iC5/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1zQ596sDEpWLDjAOwu5uH5qWcWm0-2LET/view?usp=sharing', // Replace with actual link
     color: 'from-orange-500 to-yellow-500',
   },
   {
     title: 'Enterprise Data Science (IBM)',
     provider: 'IBM',
-    link: 'https://drive.google.com/file/d/1kxxTZh5bhl1C-_tlPfF_mLxJpiZhYhgM/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1zHKcJ1N6I-SZdcn67PyCMIhGZdEzaEuE/view?usp=sharing', // Replace with actual link
     color: 'from-cyan-500 to-blue-500',
   },
   {
     title: 'Infosys Power BI',
     provider: 'Infosys',
-    link: 'https://drive.google.com/file/d/1S8PnhZ10GWPaUu44HobBBbyDAmmJrGWT/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1zmBnwfhVpGuF2u7aOx_RROdeAwj_bqfk/view?usp=sharing', // Replace with actual link
     color: 'from-purple-500 to-pink-500',
   },
   {
     title: 'CCNA',
     provider: 'Cisco',
-    link: 'https://drive.google.com/drive/folders/1G-le2C4hN5AHcU7UDHXCVz1Lae7aGKwY?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/drive/folders/1n8XCPq2lhWUzY9TW6YZ2f_2FyvHAb7sl?usp=sharing', // Replace with actual link
     color: 'from-orange-500 to-yellow-500',
   },
   {
     title: 'Infosys Blockchain',
     provider: 'Infosys',
-    link: 'https://drive.google.com/file/d/1eGUTZcikf5Gg07Yggcs64bSofcdH_eGz/view?usp=sharing', // Replace with actual link
+    link: 'https://drive.google.com/file/d/1TVyOisSdeni3_YCUIIvY5_RKqACHN2wg/view?usp=sharing', // Replace with actual link
     color: 'from-cyan-500 to-blue-500',
   },
 ]
