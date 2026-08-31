@@ -279,7 +279,7 @@ export const profiles = {
       },
       {
         company: 'Ammunition Factory Khadki',
-        role: 'Frontend Web Development Intern',
+        role: 'Data & Machine Learning Intern',
         period: '8 Jul - 7 Aug 2024',
         location: 'Pune, India',
         color: 'from-purple-500 to-pink-500',
@@ -294,26 +294,34 @@ export const profiles = {
       {
         title: 'CrayFit: AI Diet Planner',
         description:
-          'Defined user requirements and built logic for customized 7-day diet plans based on health data, improving relevance and personalization.',
-        tech: ['User Requirements', 'Deep Learning', 'MERN', 'AWS'],
+          'Defined user requirements and built logic for customized diet plans based on health data, improving personalization and achieving 88% recommendation relevance.',
+        tech: ['User Requirements', 'Product Design', 'MERN', 'AWS'],
         color: 'from-blue-500 to-cyan-500',
         badge: 'Product Delivery',
       },
       {
         title: 'Sentiment Analysis using Python',
         description:
-          'Generated insights from real-time data to support informed decision-making around financial sentiment and market behavior.',
+          'Identified a gap in market sentiment visibility and built a solution to translate financial news data into decision-ready insights for users.',
         tech: ['NLP', 'Analytics', 'APIs', 'Decision Support'],
         color: 'from-green-500 to-emerald-500',
         badge: 'Insight Engine',
       },
       {
-        title: 'EdTech Platform with Career Counseling Chatbot',
+        title: 'EdTech Platform with Multi-Agent Career Counseling',
         description:
-          'Focused on improving user experience through intelligent automation and data-driven insights for career guidance workflows.',
-        tech: ['User Experience', 'NLP', 'Automation'],
+          'Designed a multi-agent product experience for personalized career guidance, prioritizing user context and relevance to improve counseling outcomes.',
+        tech: ['Product Strategy', 'User Experience', 'LLMs', 'RAG'],
         color: 'from-orange-500 to-red-500',
         badge: 'User-Centric Build',
+      },
+      {
+        title: 'BrandSnap AI: GenAI for Social Media Content Creation',
+        description:
+          'Scoped and delivered an end-to-end content workflow for brand teams, streamlining caption and image generation to improve marketing turnaround time.',
+        tech: ['Workflow Design', 'GenAI', 'Prompt Engineering', 'Stakeholder Needs'],
+        color: 'from-purple-500 to-pink-500',
+        badge: 'Workflow Product',
       },
     ],
     caseStudies: [
