@@ -104,16 +104,6 @@ export const profiles = {
     ],
     studying: [
       {
-        title: 'GenAI',
-        icon: 'brain',
-        color: 'from-purple-500 via-fuchsia-500 to-pink-500',
-        points: [
-          'LLMs and prompt engineering',
-          'RAG pipelines and embeddings',
-          'Fine-tuning and evaluation',
-        ],
-      },
-      {
         title: 'ML-Ops',
         icon: 'cloud',
         color: 'from-cyan-500 via-blue-500 to-indigo-500',
